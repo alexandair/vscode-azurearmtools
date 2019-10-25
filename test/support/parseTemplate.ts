@@ -5,9 +5,10 @@
 import * as assert from 'assert';
 import { DeploymentTemplate } from "../../extension.bundle";
 import { Issue } from '../../src/Language';
+import { IDeploymentTemplate } from './diagnostics';
 import { stringify } from "./stringify";
 
-export async function parseTemplate(template: string | {}, expected?: string[], options?: { ignoreWarnings: boolean }): Promise<DeploymentTemplate> {
+export async function parseTemplate(template: string | Partial<IDeploymentTemplate>, expected?: string[], options?: { ignoreWarnings: boolean }): Promise<DeploymentTemplate> {
     const json = typeof template === "string" ? template : stringify(template);
     const dt = new DeploymentTemplate(json, "id");
 

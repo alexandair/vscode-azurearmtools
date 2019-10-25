@@ -6,6 +6,7 @@
 
 import * as assert from "assert";
 import { Hover, Language } from "../extension.bundle";
+import { IDeploymentTemplate } from "./support/diagnostics";
 import { parseTemplate } from "./support/parseTemplate";
 
 const fakeSpan = new Language.Span(0, 0);
@@ -14,7 +15,8 @@ suite("Hover.UserNamespaceInfo", () => {
     suite("getHoverText", () => {
 
         test("no members", async () => {
-            const dt = await parseTemplate({
+            // tslint:disable-next-line:no-any
+            const dt = await parseTemplate(<IDeploymentTemplate><any>{
                 $schema: "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                 contentVersion: "1.0.0.0",
                 functions: [
@@ -51,7 +53,8 @@ suite("Hover.UserNamespaceInfo", () => {
     });
 
     test("one member, one param, no type", async () => {
-        const dt = await parseTemplate({
+        // tslint:disable-next-line:no-any
+        const dt = await parseTemplate(<IDeploymentTemplate><any>{
             $schema: "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
             contentVersion: "1.0.0.0",
             functions: [
