@@ -73,6 +73,7 @@ export interface IDeploymentNamespaceDefinition {
 export interface IDeploymentTemplate {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#" | "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#" | string;
     contentVersion: string;
+    apiProfile?: string;
     parameters?: {
         [key: string]: IDeploymentParameterDefinition;
     };

@@ -33,10 +33,13 @@ export const diagnosticsCompletePrefix = "Diagnostics complete: ";
 export const expressionsDiagnosticsCompletionMessage = diagnosticsCompletePrefix + expressionsDiagnosticsSource;
 
 export namespace templateKeys {
+    // Top-level
     export const parameters = 'parameters';
     export const resources = 'resources';
     export const variables = 'variables';
+    export const apiProfile = 'apiProfile';
 
+    // Others
     export const resourceType = 'type';
     export const resourceApiVersion = 'apiVersion';
 }
